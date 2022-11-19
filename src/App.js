@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
 
-function App() {
+const sliderData = [
+  {
+    id: 1,
+    img: '/images/hero-bottles.jpg',
+    description: 'many bottles join',
+  },
+  {
+    id: 2,
+    img: '/images/hero-mony.jpg',
+    description: 'money inside a bottle and the center a plant',
+  },
+  {
+    id: 3,
+    img: '/images/hero-beach.jpg',
+    description: 'caja de carton apiladas',
+  },
+];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
